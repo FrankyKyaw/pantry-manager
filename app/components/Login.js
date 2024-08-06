@@ -22,14 +22,7 @@ export function Login({ setUser }) {
     }
 }
 
-    const handleLogout = async () => {
-      try {
-        await signOut(auth);
-        setUser(null);
-      } catch (error) {
-        console.log("Error logging out user: ", error);
-      }
-    };
+
     return (
         <Box
           display="flex"

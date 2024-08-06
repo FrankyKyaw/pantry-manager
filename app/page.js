@@ -44,6 +44,7 @@ import { Camera } from "react-camera-pro";
 import { onAuthStateChanged, signOut } from "firebase/auth";
 import { Login } from "./components/Login";
 
+
 export default function Home() {
   const [inventory, setInventory] = useState([]);
   const [open, setOpen] = useState(false);
@@ -51,9 +52,9 @@ export default function Home() {
   const [searchTerm, setSearchTerm] = useState("");
   const [user, setUser] = useState(null);
 
-  const [cameraOpen, setCameraOpen] = useState(false);
-  const [image, setImage] = useState(null);
-  const cameraRef = useRef(null);
+  // const [cameraOpen, setCameraOpen] = useState(false);
+  // const [image, setImage] = useState(null);
+  // const cameraRef = useRef(null);
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       if (currentUser) {
@@ -75,7 +76,6 @@ export default function Home() {
 
   const updateInventory = async (userId) => {
     try {
-      console.log("Updating inventory for user:", userId);
       const inventoryRef = collection(firestore, "users", userId, "inventory");
       const snapshot = await getDocs(inventoryRef);
       const inventoryList = snapshot.docs.map((doc) => ({
@@ -207,7 +207,7 @@ export default function Home() {
                   </ListItemIcon>
                   <ListItemText primary="Add New Item" />
                 </ListItem>
-                <ListItem
+                {/* <ListItem
                   button
                   onClick={(e) => {
                     e.stopPropagation();
@@ -218,7 +218,7 @@ export default function Home() {
                     <CameraIcon />
                   </ListItemIcon>
                   <ListItemText primary="Add Item with Camera" />
-                </ListItem>
+                </ListItem> */}
               </List>
               <Divider />
               <List>
