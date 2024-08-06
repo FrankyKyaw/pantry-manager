@@ -9,8 +9,5 @@ const config = {
       measurementId: process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID,
     },
   };
-  
-console.log("Environment variables:", process.env);
-console.log("Config object:", config);
 
 export default config;
